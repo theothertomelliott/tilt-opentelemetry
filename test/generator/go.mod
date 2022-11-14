@@ -1,4 +1,4 @@
-module github.com/theothertomelliott/tilt-telemetry/test/generator
+module github.com/theothertomelliott/tilt-opentelemetry/test/generator
 
 go 1.18
 
