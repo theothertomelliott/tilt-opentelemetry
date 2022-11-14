@@ -1,0 +1,12 @@
+curDir = os.path.join(os.path.dirname(__file__), "..", "..")
+
+v1alpha1.extension_repo(name='tilt-telemetry', url='file://'+curDir)
+v1alpha1.extension(name='tilt-telemetry', repo_name='tilt-telemetry', repo_path='')
+load('ext://tilt-telemetry', 'setup_telemetry')
+
+setup_telemetry(local=True)
+
+local_resource(
+    "generator",
+    serve_cmd="OTEL_OTLP_HTTP_ENDPOINT=localhost:4318 go run ../generator"
+)
