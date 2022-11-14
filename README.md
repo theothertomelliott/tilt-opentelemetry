@@ -24,5 +24,7 @@ opentelemetry_kubernetes()
 
 ## Docker Compose
 
+```
 load('ext://tilt-opentelemetry', 'opentelemetry_compose')
 opentelemetry_compose()
+```
