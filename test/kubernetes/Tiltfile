@@ -2,6 +2,6 @@ curDir = os.path.join(os.path.dirname(__file__), "..", "..")
 
 v1alpha1.extension_repo(name='tilt-opentelemetry', url='file://'+curDir)
 v1alpha1.extension(name='tilt-opentelemetry', repo_name='tilt-opentelemetry', repo_path='')
-load('ext://tilt-opentelemetry', 'setup_telemetry')
+load('ext://tilt-opentelemetry', 'opentelemetry_kubernetes')
 
-setup_telemetry()
+opentelemetry_kubernetes()

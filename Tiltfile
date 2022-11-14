@@ -1,20 +1,11 @@
-def setup_telemetry(
-    local=False,
-    namespace="default",
-    labels=["telemetry"]
-    ):
+def opentelemetry_compose(labels=["telemetry"]):
     tfdir = os.path.dirname(__file__)
-    if local:
-        setup_local(tfdir, labels)
-    else:
-        setup_kubernetes(namespace,labels)
-
-def setup_local(tfdir, labels):
     docker_compose(os.path.join(tfdir, 'compose/docker-compose.yaml'))
     dc_resource('jaeger', labels=labels)
     dc_resource('otel-collector', labels=labels)
 
-def setup_kubernetes(tfdir, namespace, labels):
+def opentelemetry_kubernetes(namespace="default", labels=["telemetry"]):
+    tfdir = os.path.dirname(__file__)
     # Load the Tilt support Helm chart
     k8s_yaml(helm(
         os.path.join(tfdir, 'charts/otel'),
